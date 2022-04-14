@@ -1,0 +1,73 @@
+cronosdevnet_796-1:
+  cmd: ./bin/cronosd #change to your own to the binary
+  validators:
+    - coins: 1000000000stake
+      staked: 1000000000stake
+      # tcrc16nhf4whz92ermedv0f6jfzhzdyrlu73q2tj2cw
+      mnemonic: "motion exist tackle soap hobby cabbage meat siege motion vintage exit kit tooth finger pigeon away hip wagon during sock staff assist evil twice"
+      app-config:
+        json-rpc:
+          address: "0.0.0.0:8545"
+          ws-address: "0.0.0.0:8546"
+        api:
+          address: "tcp://0.0.0.0:1317"
+        grpc:
+          address: "0.0.0.0:9090"
+      config:
+        proxy_app: "tcp://127.0.0.1:26658"
+        rpc:
+          laddr: "tcp://0.0.0.0:26657"
+          pprof_laddr: "localhost:6060"
+          grpc_laddr: ""
+        p2p:
+          laddr: "tcp://0.0.0.0:26650"
+        consensus:
+          timeout_commit: "5s"
+  accounts:
+    - name: qa1
+      # tcrc1nyf5l4hrdzu472h2nvt4hmy8gumatsdgvw7fk9
+      mnemonic: "monkey pudding insane tribe banana pilot gasp stick bundle use ten syrup legend sport code inject oven kitten rug burden float soon cradle width"
+      coins: 10000000000000000000basetcro
+    - name: qa2
+      # tcrc1xqlwl626xhcsu7eprjynpcgvkcdluwv0mzzuk0
+      mnemonic: "roast injury exchange trick penalty priority shock dinosaur exercise grain vicious cancel solar mixed borrow brief unique tackle public saddle begin team siege coral"
+      coins: 100000000000000000000000000000000000000basetcro
+    - name: qa3
+      # tcrc1hptcxx28mdsezkxlrwmm8w7se9w4nvh4hpqpam
+      mnemonic: "enemy student cave lawn pond try amateur fit fly member limb egg door infant cargo spray toast assault lock injury budget exit thank domain"
+      coins: 100000000000basetcro
+    - name: qa4
+      mnemonic: "grace item click zone used veteran deliver dentist front creek coffee spell release iron ring early hungry winner toilet ramp siege meadow frost romance"
+      coins: 100000000000basetcro
+    - name: relayer
+      mnemonic: "inhale unveil admit decrease viable mirror usage birth romance essence pupil garage melody problem actress add arm damage enact stove near pigeon method ten"
+      coins: 10basetcro
+  genesis:
+    consensus_params:
+      block:
+        max_bytes: "1048576"
+        max_gas: "81500000"
+    app_state:
+      evm:
+        params:
+          evm_denom: basetcro
+      cronos:
+        params:
+          enable_auto_deployment: true
+          ibc_cro_denom: "ibc/6B5A664BF0AF4F71B2F0BAA33141E2F1321242FBD5D19762F541EC971ACB0865"
+      gov:
+        voting_params:
+          voting_period: "10s"
+        deposit_params:
+          max_deposit_period: "10s"
+          min_deposit:
+            - denom: "basetcro"
+              amount: "1"
+      transfer:
+        params:
+          receive_enabled: true
+          send_enabled: true
+      feemarket:
+        params:
+          no_base_fee: false
+          initial_base_fee: 100000000000
